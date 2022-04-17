@@ -5,6 +5,7 @@
 package com.mycompany.chat;
 
 import java.awt.Color;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -36,7 +37,11 @@ public class ChatWindow extends javax.swing.JFrame {
         sendButton = new javax.swing.JButton();
         separator2 = new javax.swing.JSeparator();
         chatAreaFrame = new javax.swing.JScrollPane();
-        chatArea = new javax.swing.JPanel();
+        chatArea = new javax.swing.JList<>();
+        welcomePane = new javax.swing.JPanel();
+        nicknameField = new javax.swing.JTextField();
+        nicknameLabel = new javax.swing.JLabel();
+        sendNickname = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(23, 33, 43));
@@ -66,6 +71,7 @@ public class ChatWindow extends javax.swing.JFrame {
         typingArea.setWrapStyleWord(true);
         typingArea.setBorder(null);
         typingArea.setCaretColor(new java.awt.Color(90, 100, 113));
+        typingArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         typingArea.setDisabledTextColor(new java.awt.Color(90, 100, 113));
         typingArea.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -82,9 +88,9 @@ public class ChatWindow extends javax.swing.JFrame {
         sendButton.setForeground(new java.awt.Color(90, 100, 113));
         sendButton.setText("Отправить!");
         sendButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(90, 100, 113), 1, true));
-        sendButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                sendButtonMouseClicked(evt);
+        sendButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendButtonActionPerformed(evt);
             }
         });
 
@@ -98,7 +104,7 @@ public class ChatWindow extends javax.swing.JFrame {
             messageAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(messageAreaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(typingAreaFrame)
+                .addComponent(typingAreaFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -121,18 +127,8 @@ public class ChatWindow extends javax.swing.JFrame {
         chatAreaFrame.setAutoscrolls(true);
 
         chatArea.setBackground(new java.awt.Color(14, 22, 33));
-
-        javax.swing.GroupLayout chatAreaLayout = new javax.swing.GroupLayout(chatArea);
-        chatArea.setLayout(chatAreaLayout);
-        chatAreaLayout.setHorizontalGroup(
-            chatAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
-        );
-        chatAreaLayout.setVerticalGroup(
-            chatAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 388, Short.MAX_VALUE)
-        );
-
+        chatArea.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+        chatArea.setForeground(new java.awt.Color(255, 255, 255));
         chatAreaFrame.setViewportView(chatArea);
 
         javax.swing.GroupLayout mainFrameLayout = new javax.swing.GroupLayout(mainFrame);
@@ -153,15 +149,69 @@ public class ChatWindow extends javax.swing.JFrame {
                 .addComponent(messageArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        welcomePane.setBackground(new java.awt.Color(14, 22, 33));
+
+        nicknameField.setBackground(new java.awt.Color(23, 33, 43));
+        nicknameField.setForeground(new java.awt.Color(255, 255, 255));
+        nicknameField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(90, 100, 113), 1, true));
+
+        nicknameLabel.setBackground(new java.awt.Color(14, 22, 33));
+        nicknameLabel.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+        nicknameLabel.setForeground(new java.awt.Color(90, 100, 113));
+        nicknameLabel.setText("Ваше имя:");
+
+        sendNickname.setBackground(new java.awt.Color(90, 100, 113));
+        sendNickname.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+        sendNickname.setForeground(new java.awt.Color(14, 22, 33));
+        sendNickname.setText("Войти");
+        sendNickname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendNicknameActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout welcomePaneLayout = new javax.swing.GroupLayout(welcomePane);
+        welcomePane.setLayout(welcomePaneLayout);
+        welcomePaneLayout.setHorizontalGroup(
+            welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcomePaneLayout.createSequentialGroup()
+                .addGap(139, 139, 139)
+                .addComponent(nicknameField, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(134, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, welcomePaneLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(sendNickname)
+                .addGap(197, 197, 197))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, welcomePaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nicknameLabel)
+                .addGap(199, 199, 199))
+        );
+        welcomePaneLayout.setVerticalGroup(
+            welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcomePaneLayout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(nicknameLabel)
+                .addGap(18, 18, 18)
+                .addComponent(nicknameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(sendNickname)
+                .addContainerGap(219, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(mainFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(welcomePane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(mainFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(welcomePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -181,10 +231,16 @@ public class ChatWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_typingAreaFocusLost
 
-    private void sendButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendButtonMouseClicked
-        String message = typingArea.getText();
-        jLabel1 = new javax.swing.JLabel();
-    }//GEN-LAST:event_sendButtonMouseClicked
+   DefaultListModel model = new DefaultListModel();
+    private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
+        String message = typingArea.getText().trim();
+        chatArea.setModel(model);
+        model.addElement(message + "\nАфрика");
+    }//GEN-LAST:event_sendButtonActionPerformed
+
+    private void sendNicknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendNicknameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sendNicknameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,14 +279,18 @@ public class ChatWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel chatArea;
+    private javax.swing.JList<String> chatArea;
     private javax.swing.JScrollPane chatAreaFrame;
     private javax.swing.JPanel mainFrame;
     private javax.swing.JPanel messageArea;
+    private javax.swing.JTextField nicknameField;
+    private javax.swing.JLabel nicknameLabel;
     private javax.swing.JButton sendButton;
+    private javax.swing.JButton sendNickname;
     private javax.swing.JSeparator separator;
     private javax.swing.JSeparator separator2;
     private javax.swing.JTextArea typingArea;
     private javax.swing.JScrollPane typingAreaFrame;
+    private javax.swing.JPanel welcomePane;
     // End of variables declaration//GEN-END:variables
 }
