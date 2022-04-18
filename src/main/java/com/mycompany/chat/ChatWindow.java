@@ -29,125 +29,28 @@ public class ChatWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        welcomePane = new javax.swing.JPanel();
+        nicknameField = new javax.swing.JTextField();
+        nicknameLabel = new javax.swing.JLabel();
+        sendNickname = new javax.swing.JButton();
+        welcomeWarningText = new javax.swing.JLabel();
+        welcomeWarningText.setVisible(false);
         mainFrame = new javax.swing.JPanel();
         separator = new javax.swing.JSeparator();
+        chatAreaFrame = new javax.swing.JScrollPane();
+        chatArea = new javax.swing.JList<>();
         messageArea = new javax.swing.JPanel();
         typingAreaFrame = new javax.swing.JScrollPane();
         typingArea = new javax.swing.JTextArea();
         sendButton = new javax.swing.JButton();
         separator2 = new javax.swing.JSeparator();
-        chatAreaFrame = new javax.swing.JScrollPane();
-        chatArea = new javax.swing.JList<>();
-        welcomePane = new javax.swing.JPanel();
-        nicknameField = new javax.swing.JTextField();
-        nicknameLabel = new javax.swing.JLabel();
-        sendNickname = new javax.swing.JButton();
+        messageWarningText = new javax.swing.JLabel();
+        messageWarningText.setVisible(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(23, 33, 43));
         setResizable(false);
-
-        mainFrame.setBackground(new java.awt.Color(14, 22, 33));
-        mainFrame.setForeground(new java.awt.Color(14, 22, 33));
-        mainFrame.setAutoscrolls(true);
-
-        separator.setBackground(new java.awt.Color(90, 100, 113));
-        separator.setForeground(new java.awt.Color(90, 100, 113));
-
-        messageArea.setBackground(new java.awt.Color(14, 22, 33));
-        messageArea.setForeground(new java.awt.Color(14, 22, 33));
-
-        typingAreaFrame.setBackground(new java.awt.Color(23, 33, 43));
-        typingAreaFrame.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(90, 100, 113), 1, true));
-        typingAreaFrame.setOpaque(false);
-
-        typingArea.setBackground(new java.awt.Color(23, 33, 43));
-        typingArea.setColumns(20);
-        typingArea.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
-        typingArea.setForeground(new java.awt.Color(255, 255, 255));
-        typingArea.setLineWrap(true);
-        typingArea.setRows(3);
-        typingArea.setToolTipText("");
-        typingArea.setWrapStyleWord(true);
-        typingArea.setBorder(null);
-        typingArea.setCaretColor(new java.awt.Color(90, 100, 113));
-        typingArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        typingArea.setDisabledTextColor(new java.awt.Color(90, 100, 113));
-        typingArea.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                typingAreaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                typingAreaFocusLost(evt);
-            }
-        });
-        typingAreaFrame.setViewportView(typingArea);
-
-        sendButton.setBackground(new java.awt.Color(23, 33, 43));
-        sendButton.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
-        sendButton.setForeground(new java.awt.Color(90, 100, 113));
-        sendButton.setText("Отправить!");
-        sendButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(90, 100, 113), 1, true));
-        sendButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sendButtonActionPerformed(evt);
-            }
-        });
-
-        separator2.setBackground(new java.awt.Color(90, 100, 113));
-        separator2.setForeground(new java.awt.Color(90, 100, 113));
-        separator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        javax.swing.GroupLayout messageAreaLayout = new javax.swing.GroupLayout(messageArea);
-        messageArea.setLayout(messageAreaLayout);
-        messageAreaLayout.setHorizontalGroup(
-            messageAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(messageAreaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(typingAreaFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(separator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        messageAreaLayout.setVerticalGroup(
-            messageAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(messageAreaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(messageAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(typingAreaFrame)
-                    .addComponent(separator2)
-                    .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
-
-        chatAreaFrame.setBackground(new java.awt.Color(14, 22, 33));
-        chatAreaFrame.setBorder(null);
-        chatAreaFrame.setAutoscrolls(true);
-
-        chatArea.setBackground(new java.awt.Color(14, 22, 33));
-        chatArea.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
-        chatArea.setForeground(new java.awt.Color(255, 255, 255));
-        chatAreaFrame.setViewportView(chatArea);
-
-        javax.swing.GroupLayout mainFrameLayout = new javax.swing.GroupLayout(mainFrame);
-        mainFrame.setLayout(mainFrameLayout);
-        mainFrameLayout.setHorizontalGroup(
-            mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(separator)
-            .addComponent(messageArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(chatAreaFrame, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        mainFrameLayout.setVerticalGroup(
-            mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainFrameLayout.createSequentialGroup()
-                .addComponent(chatAreaFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(messageArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         welcomePane.setBackground(new java.awt.Color(14, 22, 33));
 
@@ -170,76 +73,192 @@ public class ChatWindow extends javax.swing.JFrame {
             }
         });
 
+        welcomeWarningText.setForeground(new java.awt.Color(255, 0, 0));
+        welcomeWarningText.setText("Введите имя (до 20 символов)");
+        welcomeWarningText.setFocusable(false);
+
         javax.swing.GroupLayout welcomePaneLayout = new javax.swing.GroupLayout(welcomePane);
         welcomePane.setLayout(welcomePaneLayout);
         welcomePaneLayout.setHorizontalGroup(
             welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, welcomePaneLayout.createSequentialGroup()
+                .addContainerGap(145, Short.MAX_VALUE)
+                .addGroup(welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, welcomePaneLayout.createSequentialGroup()
+                        .addComponent(nicknameField, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, welcomePaneLayout.createSequentialGroup()
+                        .addComponent(welcomeWarningText, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(143, 143, 143))))
             .addGroup(welcomePaneLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(nicknameField, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, welcomePaneLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(sendNickname)
-                .addGap(197, 197, 197))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, welcomePaneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nicknameLabel)
-                .addGap(199, 199, 199))
+                .addGroup(welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(welcomePaneLayout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(nicknameLabel))
+                    .addGroup(welcomePaneLayout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(sendNickname)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         welcomePaneLayout.setVerticalGroup(
             welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(welcomePaneLayout.createSequentialGroup()
-                .addGap(144, 144, 144)
+                .addGap(126, 126, 126)
                 .addComponent(nicknameLabel)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(nicknameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(welcomeWarningText)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sendNickname)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(welcomePane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        getContentPane().add(welcomePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 470));
+
+        mainFrame.setBackground(new java.awt.Color(14, 22, 33));
+        mainFrame.setForeground(new java.awt.Color(14, 22, 33));
+        mainFrame.setAutoscrolls(true);
+
+        separator.setBackground(new java.awt.Color(90, 100, 113));
+        separator.setForeground(new java.awt.Color(90, 100, 113));
+
+        chatAreaFrame.setBackground(new java.awt.Color(14, 22, 33));
+        chatAreaFrame.setBorder(null);
+        chatAreaFrame.setAutoscrolls(true);
+
+        chatArea.setBackground(new java.awt.Color(14, 22, 33));
+        chatArea.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+        chatArea.setForeground(new java.awt.Color(255, 255, 255));
+        chatAreaFrame.setViewportView(chatArea);
+
+        messageArea.setBackground(new java.awt.Color(14, 22, 33));
+        messageArea.setForeground(new java.awt.Color(14, 22, 33));
+
+        typingAreaFrame.setBackground(new java.awt.Color(23, 33, 43));
+        typingAreaFrame.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(90, 100, 113), 1, true));
+        typingAreaFrame.setOpaque(false);
+
+        typingArea.setBackground(new java.awt.Color(23, 33, 43));
+        typingArea.setColumns(20);
+        typingArea.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+        typingArea.setForeground(new java.awt.Color(255, 255, 255));
+        typingArea.setLineWrap(true);
+        typingArea.setRows(3);
+        typingArea.setToolTipText("");
+        typingArea.setWrapStyleWord(true);
+        typingArea.setBorder(null);
+        typingArea.setCaretColor(new java.awt.Color(90, 100, 113));
+        typingArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        typingArea.setDisabledTextColor(new java.awt.Color(90, 100, 113));
+        typingAreaFrame.setViewportView(typingArea);
+
+        sendButton.setBackground(new java.awt.Color(23, 33, 43));
+        sendButton.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+        sendButton.setForeground(new java.awt.Color(90, 100, 113));
+        sendButton.setText("Отправить!");
+        sendButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(90, 100, 113), 1, true));
+        sendButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendButtonActionPerformed(evt);
+            }
+        });
+
+        separator2.setBackground(new java.awt.Color(90, 100, 113));
+        separator2.setForeground(new java.awt.Color(90, 100, 113));
+        separator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        messageWarningText.setFont(new java.awt.Font("Garamond", 1, 12)); // NOI18N
+        messageWarningText.setForeground(new java.awt.Color(255, 0, 0));
+        messageWarningText.setText("Введите сообщение. До 60 символов");
+
+        javax.swing.GroupLayout messageAreaLayout = new javax.swing.GroupLayout(messageArea);
+        messageArea.setLayout(messageAreaLayout);
+        messageAreaLayout.setHorizontalGroup(
+            messageAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(messageAreaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(messageAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(messageAreaLayout.createSequentialGroup()
+                        .addComponent(typingAreaFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(separator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(messageAreaLayout.createSequentialGroup()
+                        .addComponent(messageWarningText)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(welcomePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        messageAreaLayout.setVerticalGroup(
+            messageAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(messageAreaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(messageAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(typingAreaFrame)
+                    .addComponent(separator2)
+                    .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(messageWarningText)
+                .addContainerGap())
         );
+
+        javax.swing.GroupLayout mainFrameLayout = new javax.swing.GroupLayout(mainFrame);
+        mainFrame.setLayout(mainFrameLayout);
+        mainFrameLayout.setHorizontalGroup(
+            mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainFrameLayout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addGroup(mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(separator, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(messageArea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainFrameLayout.createSequentialGroup()
+                    .addGap(2, 2, 2)
+                    .addComponent(chatAreaFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        mainFrameLayout.setVerticalGroup(
+            mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainFrameLayout.createSequentialGroup()
+                .addGap(372, 372, 372)
+                .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(messageArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainFrameLayout.createSequentialGroup()
+                    .addComponent(chatAreaFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 104, Short.MAX_VALUE)))
+        );
+
+        getContentPane().add(mainFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void typingAreaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_typingAreaFocusGained
-        if(typingArea.getText().equals("Введите сообщение...")) {
-            typingArea.setText("");
-            typingArea.setForeground(new Color(90,100,113));
-        }
-    }//GEN-LAST:event_typingAreaFocusGained
-
-    private void typingAreaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_typingAreaFocusLost
-        if(typingArea.getText().equals("")) {
-            typingArea.setText("Введите сообщение...");
-            typingArea.setForeground(new Color(90,100,113));
-        }
-    }//GEN-LAST:event_typingAreaFocusLost
-
    DefaultListModel model = new DefaultListModel();
     private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
-        String message = typingArea.getText().trim();
+        String message = typingArea.getText();
         chatArea.setModel(model);
-        model.addElement(message + "\nАфрика");
+        if(message.isEmpty() || message.length()>60) {
+            messageWarningText.setVisible(true);
+        } else {
+            model.addElement(message + name); 
+            messageWarningText.setVisible(false);
+        }
+        
     }//GEN-LAST:event_sendButtonActionPerformed
-
+    String name;
     private void sendNicknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendNicknameActionPerformed
-        // TODO add your handling code here:
+        String nickname = nicknameField.getText();
+        if (nickname.isEmpty() || nickname.length()>20) {
+            welcomeWarningText.setVisible(true);
+        } else {
+            name = nicknameField.getText();
+            welcomePane.setVisible(false);
+        }
     }//GEN-LAST:event_sendNicknameActionPerformed
 
     /**
@@ -283,6 +302,7 @@ public class ChatWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane chatAreaFrame;
     private javax.swing.JPanel mainFrame;
     private javax.swing.JPanel messageArea;
+    private javax.swing.JLabel messageWarningText;
     private javax.swing.JTextField nicknameField;
     private javax.swing.JLabel nicknameLabel;
     private javax.swing.JButton sendButton;
@@ -292,5 +312,6 @@ public class ChatWindow extends javax.swing.JFrame {
     private javax.swing.JTextArea typingArea;
     private javax.swing.JScrollPane typingAreaFrame;
     private javax.swing.JPanel welcomePane;
+    private javax.swing.JLabel welcomeWarningText;
     // End of variables declaration//GEN-END:variables
 }
